@@ -10,7 +10,7 @@ githubService = require('./github-service');
 // instantiate api
 const api = express();
 
-// register followers endpoint and define async handler
+// register followers endpoint and define handler
 api.get('/followers/:id', function (req, res) {
   // log status
   console.log(`Querying ${ req.params.id }...`);
