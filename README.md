@@ -6,7 +6,7 @@ This demo uses Axios to query Github and JavaScript promises to manage the recur
 
 To run the demo:
 
-# optionally edit the configuration inside `config.json`
-# install dependencies with `npm install`
-# start the API with `npm start`
-# query a user by visiting http://localhost:3000/followers/foobar where 'foobar' is the username
+- optionally edit the configuration inside `config.json`
+- install dependencies with `npm install`
+- start the API with `npm start`
+- query a user by visiting http://localhost:3000/followers/foobar where 'foobar' is the username
