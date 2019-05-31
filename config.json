@@ -1,0 +1,9 @@
+{
+  "auth": {
+    "username": "dylanized",
+    "password": "7eb24ecccc37cf419dc8448b5c9772c2fc761f29"
+  },
+  "port": 3000,
+  "maxLevels": 2,
+  "maxFollowers": 5
+}
