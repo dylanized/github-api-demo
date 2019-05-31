@@ -10,14 +10,12 @@ module.exports = {
 };
 
 // define promise to get follower tree
-function getFollowersPromise(user, level=0) {
+function getFollowersPromise(user, level=1) {
   return new Promise(function(resolve, reject) {
     // instantiate tree
     const followerTree = {};
     // instantiate queue array
     const queue = [];
-    // increment level
-    level++;
     // query followers from api
     axios.get(`https://api.github.com/users/${ user }/followers`, {
       auth: config.auth,
@@ -29,7 +27,7 @@ function getFollowersPromise(user, level=0) {
         // if level is less than or equal to the maxLevels setting
         if (level <= config.maxLevels) {
           // queue a promise that gets the follower's subtree, then mounts the follower and their subtree
-          queue.push(getFollowersPromise(follower.login, level).then((subtree) => { followerTree[follower.login] = subtree; }));
+          queue.push(getFollowersPromise(follower.login, level + 1).then((subtree) => { followerTree[follower.login] = subtree; }));
         }
         // else mount an empty follower
         else followerTree[follower.login] = null;
