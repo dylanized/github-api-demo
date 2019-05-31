@@ -28,7 +28,7 @@ api.get('/followers/:id', function (req, res) {
     // log it
     console.log(err);
     // and send it
-    res.send("User not found!");
+    res.send('User not found!');
   });
 });
 
