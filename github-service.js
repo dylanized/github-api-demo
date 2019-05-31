@@ -28,14 +28,11 @@ function getFollowersPromise(user, level=0) {
       response.data.slice(0, config.maxFollowers).forEach((follower) => {
         // if level is less than or equal to the maxLevels setting
         if (level <= config.maxLevels) {
-          // queue a promise to get the subtree, then mount a follower and their subtree
+          // queue a promise that gets the subtree, then mounts a follower and their subtree
           queue.push(getFollowersPromise(follower.login, level).then((subtree) => { followerTree[follower.login] = subtree; }));
         }
-        // else
-        else {
-          // mount an empty follower
-          followerTree[follower.login] = null;
-        }
+        // else mount an empty follower
+        else followerTree[follower.login] = null;
       });
     })
     // or catch error
